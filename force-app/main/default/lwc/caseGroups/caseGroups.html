@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Case Group Selector">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                name="account"
+                label="Account"
+                value={selectedAccount}
+                placeholder="Select an Account"
+                options={accountOptions}
+                onchange={handleAccountChange}>
+            </lightning-combobox>
+
+            <template if:true={showCaseGroups}>
+                <lightning-dual-listbox
+                    name="caseGroups"
+                    label="Case Groups"
+                    source-label="Available"
+                    selected-label="Selected"
+                    field-level-help="Select case groups for the case"
+                    options={caseGroupOptions}
+                    onchange={handleCaseGroupChange}
+                    value={selectedCaseGroups}>
+                </lightning-dual-listbox>
+            </template>
+        </div>
+    </lightning-card>
+</template>
