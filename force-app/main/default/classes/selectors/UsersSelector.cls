@@ -58,4 +58,15 @@ public class UsersSelector extends fflib_SObjectSelector implements IUsersSelect
         System.debug('UsersSelector mapContactIdToUser: contactIdToUserMap ' + JSON.serializePretty(contactIdToUserMap));
         return contactIdToUserMap;
     }
+    
+    public Set<Id> getUserIds(List<User> users) {
+        Set<Id> userIds = new Set<Id>();
+        
+        for (User user : users) {
+            userIds.add(user.Id);
+        }
+        
+        System.debug('UsersSelector mapContactIdToUser: getUserIds ' + JSON.serializePretty(userIds));
+        return userIds;
+    }
 }

@@ -3,7 +3,9 @@ public class Application {
     public static final fflib_Application.ServiceFactory Service =
         new fflib_Application.ServiceFactory(
     new Map<Type, Type> {
-        ICaseGroupsService.class => CaseGroupsServiceImpl.class
+        ICaseGroupsService.class => CaseGroupsServiceImpl.class,
+        ICaseGroupMembersService.class => CaseGroupMembersServiceImpl.class,
+        ICaseGroupJunctionsService.class => CaseGroupJunctionsServiceImpl.class
     });
     
     // Configure and create the SelectorFactory for this Application
@@ -12,7 +14,9 @@ public class Application {
     new Map<SObjectType, Type> {
         Contact.SObjectType => ContactsSelector.class,
         User.SObjectType => UsersSelector.class,
-        AccountTeamMember.SObjectType => AccountTeamMembersSelector.class
+        AccountTeamMember.SObjectType => AccountTeamMembersSelector.class,
+        Case_Group__Share.SObjectType => CaseGroupSharesSelector.class,
+        Case_Group_Member__c.SObjectType => CaseGroupMembersSelector.class
             
     });
     
@@ -32,6 +36,9 @@ public class Application {
     new List<SObjectType> {
         Contact.SObjectType,
         Case_Group_Member__c.SObjectType,
-        AccountTeamMember.SObjectType
+        AccountTeamMember.SObjectType,
+        Case_Group__Share.SObjectType,
+        Case_Group_Junction__c.SObjectType,
+        CaseShare.SObjectType
     });
 }
